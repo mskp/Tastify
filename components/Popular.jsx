@@ -5,7 +5,7 @@ import Image from "next/image";
 import { Splide, SplideSlide } from "@splidejs/react-splide";
 import "@splidejs/splide/dist/css/splide.min.css";
 import "./styles.css";
-
+import Link from "next/link";
 export default function Popular() {
   const [popular, setPopular] = useState([]);
   useEffect(() => {
@@ -40,17 +40,19 @@ export default function Popular() {
         >
           {popular.map((recipe) => {
             return (
-              <SplideSlide key={recipe.key}>
+              <SplideSlide key={recipe.id}>
                 <div className="card">
-                  <p className="title">{recipe.title}</p>
-                  <Image
-                    className="recipe_image"
-                    src={recipe.image}
-                    alt={recipe.title}
-                    width={300}
-                    height={300}
-                  />
-                  <div className="gradient"></div>
+                  <Link href={`/recipe/${recipe.id}`}>
+                    <p className="title">{recipe.title}</p>
+                    <Image
+                      className="recipe_image"
+                      src={recipe.image}
+                      alt={recipe.title}
+                      width={300}
+                      height={300}
+                    />
+                    <div className="gradient"></div>
+                  </Link>
                 </div>
               </SplideSlide>
             );

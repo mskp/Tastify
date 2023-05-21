@@ -5,7 +5,7 @@ import Image from "next/image";
 import { Splide, SplideSlide } from "@splidejs/react-splide";
 import "@splidejs/splide/dist/css/splide.min.css";
 import "./styles.css";
-
+import Link from "next/link";
 export default function Veggie() {
   const [veggie, setVeggie] = useState([]);
   useEffect(() => {
@@ -42,15 +42,17 @@ export default function Veggie() {
             return (
               <SplideSlide key={recipe.key}>
                 <div className="card">
-                  <p className="title">{recipe.title}</p>
-                  <Image
-                    className="recipe_image"
-                    src={recipe.image}
-                    alt={recipe.title}
-                    width={300}
-                    height={300}
-                  />
-                  <div className="gradient"></div>
+                  <Link href={`/recipe/${recipe.id}`}>
+                    <p className="title">{recipe.title}</p>
+                    <Image
+                      className="recipe_image"
+                      src={recipe.image}
+                      alt={recipe.title}
+                      width={300}
+                      height={300}
+                    />
+                    <div className="gradient"></div>
+                  </Link>
                 </div>
               </SplideSlide>
             );

@@ -4,6 +4,11 @@
   width: 100;
 }
 
+.search_form div {
+  width: 100%;
+  position: relative;
+}
+
 .search_form input {
   border: none;
   background: linear-gradient(35deg, #494949, #313131);
